@@ -30,8 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        viewBinding = true
+    android {
+        buildFeatures {
+            viewBinding = true
+        }
     }
 }
 
@@ -44,6 +46,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.androidx.cardview)
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
 
 
     implementation(project(":domain"))

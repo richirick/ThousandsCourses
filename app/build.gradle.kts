@@ -10,7 +10,6 @@ android {
     defaultConfig {
         applicationId = "com.example.thousandscourses"
         minSdk = 24
-        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -46,5 +45,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+
     implementation(project(":presentation"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
 }
