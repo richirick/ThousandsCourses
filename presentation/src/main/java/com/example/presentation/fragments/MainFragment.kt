@@ -1,6 +1,7 @@
 package com.example.presentation.fragments
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,5 +32,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         }
 
         viewModel.loadCourses()
+
+        recycler.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                // Если пальцев больше 1 — перехватываем событие (блокируем скролл/клик)
+                return e.pointerCount > 1
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+                // Пусто
+            }
+
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+                // Пусто
+            }
+        })
     }
 }
