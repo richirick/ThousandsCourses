@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.Course
+import com.example.presentation.R
 import com.example.presentation.databinding.CourseItemBinding
 
 
@@ -23,6 +24,12 @@ class CourseAdapter(
             price.text = course.price
             rating.text = course.rate.toString()
             startDate.text = course.startDate
+
+            if (course.hasLike) {
+                bookmarkIcon.setColorFilter(root.context.getColor(R.color.green))
+            } else {
+                bookmarkIcon.setColorFilter(root.context.getColor(R.color.white1))
+            }
 
             bookmarkIcon.setOnClickListener {
                 onBookmarkClick(course)
