@@ -28,6 +28,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_main -> {
                     openFragment(MainFragment())
                     true
+                }R.id.menu_favorites -> {
+                openFragment(FragmentFavorites())
+                true
+            }
+                R.id.menu_account -> {
+                    openFragment(FragmentAccount()) // если есть
+                    true
                 }
                 R.id.menu_favorites -> {
                 openFragment(FragmentFavorites())
