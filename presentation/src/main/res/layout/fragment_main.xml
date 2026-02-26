@@ -39,7 +39,7 @@
 
     <!-- RecyclerView -->
 
-    <TextView
+    <Button
         android:id="@+id/sortButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,8 +48,18 @@
         android:text="По дате добавления"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar" />
+        android:minWidth="0dp"
+    android:minHeight="0dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:icon="@drawable/sync_alt_24px"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/green"
+    style="@style/Widget.MaterialComponents.Button.TextButton.Icon" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coursesRecycler"

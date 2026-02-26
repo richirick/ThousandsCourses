@@ -1,16 +1,19 @@
 package com.example.presentation
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.presentation.fragments.FragmentAccount
+import com.example.presentation.fragments.FragmentFavorites
 import com.example.presentation.fragments.MainFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -26,6 +29,14 @@ class MainActivity : AppCompatActivity() {
                     openFragment(MainFragment())
                     true
                 }
+                R.id.menu_favorites -> {
+                openFragment(FragmentFavorites())
+                true
+                }
+                R.id.menu_account -> {
+                    openFragment(FragmentAccount()) // если есть
+                    true
+                }
                 else -> false
             }
         }
@@ -35,5 +46,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.flFragment, fragment)
             .commit()
+    }
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.pointerCount > 1) {
+            return true // Блокируем мультитач глобально
+        }
+        return super.onTouchEvent(event)
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="ThousandsCourses.lib" target="11" />
+      <module name="ThousandsCourses.lib.main" target="11" />
+      <module name="ThousandsCourses.lib.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
